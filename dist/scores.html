@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scores et Classement</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Styles spécifiques pour cette page */
+        body {
+            font-family: 'Roboto', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Dégradé attrayant */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2); /* Fond de la carte semi-transparent */
+            backdrop-filter: blur(10px); /* Effet de flou */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Taille de police du titre */
+            color: #13B5CE; /* Couleur turquoise pour le titre */
+            margin-bottom: 30px;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        #score-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(19, 181, 206, 0.2); /* Fond semi-transparent turquoise */
+            border-radius: 20px;
+            color: white; /* Texte en blanc */
+            box-shadow: 0 0 15px rgba(19, 181, 206, 0.4);
+            animation: zoomIn 0.8s ease forwards;
+        }
+
+        .score-item {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .score-item span {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        button {
+            background: linear-gradient(90deg, #13B5CE, #0BACA0); /* Dégradé turquoise */
+            color: white; /* Texte en blanc */
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #0BACA0, #13B5CE);
+        }
+
+        /* Boîte de message en haut de la page */
+        .top-message {
+            background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+            backdrop-filter: blur(10px); /* Effet de flou */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(19, 181, 206, 0.4);
+            padding: 15px;
+            text-align: center;
+            margin: 20px;
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-message i {
+            margin-right: 10px;
+            color: #13B5CE; /* Couleur turquoise pour l'icône */
+        }
+
+        .top-message:hover {
+            transform: scale(1.03); /* Effet de zoom au survol */
+            background: rgba(255, 255, 255, 0.3); /* Fond semi-transparent au survol */
+        }
+
+        /* Keyframes pour les animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .message-box {
+    background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(19, 181, 206, 0.4);
+    padding: 15px;
+    text-align: center;
+    margin-top: -500px;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.message-box i {
+    margin-right: 10px;
+    color: #13B5CE; /* Couleur turquoise pour l'icône */
+}
+
+.message-box:hover {
+    transform: scale(1.03); /* Effet de zoom au survol */
+    background: rgba(255, 255, 255, 0.3); /* Fond semi-transparent au survol */
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h1>Votre Score et Classement</h1>
+        <div id="score-info">
+            <!-- Les informations de score et de classement seront affichées ici -->
+        </div>
+        <button id="view-scores-button">Voir mon score et mon classement</button>
+    </div>
+    <div class="message-box">
+        <i class="fas fa-star"></i> Félicitations pour vos performances !
+    </div>
+    
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="scores.js"></script>
+</body>
+</html>

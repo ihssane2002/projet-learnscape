@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envoyer un Feedback Anonyme</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #8c09d8, #7304bd);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"],
+        button#responses-btn {
+            background-color: #ac13f3;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover,
+        button#responses-btn:hover {
+            background-color: #9b09d4;
+        }
+
+        .message-box {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            text-align: center;
+            background-color: #fff;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-box i {
+            margin-right: 10px;
+        }
+
+        .responses-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #333;
+            display: none;
+        }
+
+        /* Styles pour la boîte de réponses */
+        #responses-box {
+            display: none; /* Par défaut caché */
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto; /* Défilement vertical */
+            overflow-x: hidden; /* Cacher le défilement horizontal par défaut */
+        }
+
+        /* Styles pour chaque feedback */
+        .feedback-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .feedback-item p {
+            margin: 5px 0;
+        }
+
+        .scroll-icons {
+    display: none; /* Par défaut caché */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1000;
+}
+
+.scroll-icons button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Envoyer un Feedback</h1>
+    
+    <!-- Formulaire pour envoyer le feedback -->
+    <form id="feedback-form">
+        <div class="form-group">
+            <label for="prof-email">E-mail du professeur :</label>
+            <input type="email" id="prof-email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="feedback-text">Votre feedback :</label>
+            <textarea id="feedback-text" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit">Envoyer le Feedback</button>
+    </form>
+    
+    <!-- Bouton pour afficher les réponses -->
+    <button id="responses-btn">Voir les réponses</button>
+    
+    <!-- Message de confirmation -->
+    <div id="confirmation-feedback" class="message-box">
+        <i class="fas fa-check-circle"></i> Feedback envoyé avec succès !
+    </div>
+
+    <!-- Affichage des réponses -->
+    <div id="responses-box" class="responses-box">
+        <h2>Réponses</h2>
+        <div id="responses-content"></div>
+    </div>
+</div>
+
+<script type="module" src="feedback.js"></script>
+
+</body>
+</html>

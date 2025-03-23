@@ -1,0 +1,104 @@
+/* Styles généraux */
+body {
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Dégradé attrayant */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Effet de carte transparente */
+.authentication {
+    background: rgba(255, 255, 255, 0.15); /* Transparence pour Glassmorphism */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    text-align: center;
+    width: 400px;
+    transition: transform 0.3s;
+}
+
+.authentication:hover {
+    transform: scale(1.03); /* Effet de zoom au survol */
+}
+/* Style pour le logo */
+.logo {
+    max-width: 100px; /* Ajustez la taille du logo si nécessaire */
+    margin-bottom: 20px; /* Espace sous le logo */
+}
+
+/* Style pour le titre "Learn Scape" */
+#learn-scape-title {
+    font-size: 48px; /* Augmente la taille du titre */
+    font-weight: bold; 
+    color: #FFFFFF; /* Couleur blanche pour contraster avec un fond sombre */
+    text-align: center; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; /* Augmente l'espacement entre les lettres */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Ajout d'une ombre pour l'effet visuel */
+    animation: fadeInTitle 2s ease-in-out; /* Animation lors de l'affichage */
+    margin-bottom: 20px; /* Espace supplémentaire sous le titre */
+}
+
+/* Animation pour le titre */
+@keyframes fadeInTitle {
+    from {
+        opacity: 0; 
+        transform: translateY(-20px); /* Déplacement initial */
+    }
+    to {
+        opacity: 1; 
+        transform: translateY(0); /* Position finale */
+    }
+}
+
+
+/* Champs d'authentification */
+input[type="email"], 
+input[type="password"] {
+    width: 100%; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2); /* Légère transparence */
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    color: white;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Couleur des placeholders */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    background: white; 
+    color: #333; 
+    outline: none;
+    border: 2px solid #13B5CE;
+    box-shadow: 0 5px 15px rgba(19, 181, 206, 0.4); 
+}
+
+/* Boutons d'authentification */
+button.signup {
+    background: linear-gradient(90deg, #13B5CE, #0BACA0); 
+    color: white; 
+    border: none; 
+    border-radius: 25px; 
+    padding: 15px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    width: 100%; 
+}
+
+button.signup:hover {
+    transform: scale(1.1); 
+    background: linear-gradient(90deg, #0BACA0, #13B5CE);
+}
