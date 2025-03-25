@@ -40,7 +40,7 @@ Pour cloner ce projet, ouvrez un terminal et exécutez la commande suivante :
 
 ```bash
 git clone https://github.com/ihssane2002/projet-learnscape.git
-
+```
 1. Accédez au répertoire du projet cloné :
 cd projet-learnscape
 
