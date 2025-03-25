@@ -6,13 +6,14 @@ LearnScape est un projet conçu pour stimuler l'engagement des étudiants en cla
 
 ### 1. **Accès aux Quiz**
 Les étudiants peuvent accéder à des quiz créés par leurs professeurs en utilisant des codes d'identification (ID). Cela permet de suivre leur progression et de se mesurer à leurs camarades.
-
+![Accès aux quiz](acces%20au%20quiz.png)
 ### 2. **Forum des Étudiants**
 Un forum est intégré à la plateforme pour que les étudiants puissent échanger entre eux. Ils peuvent discuter des sujets des cours, poser des questions, et partager des ressources ou des idées.
+![Forum d'entraide](forum.png) 
 
 ### 3. **Suivi des Scores et Classement**
 Les étudiants peuvent consulter leur score après avoir terminé un quiz et se comparer à leurs collègues. Cela leur permet de voir leur classement par rapport à leurs camarades, offrant ainsi une motivation pour améliorer leurs résultats.
-
+![Suivi des résultats](score.png) 
 ## Codes ID pour tester un quiz
 Pour tester les quiz créés par les professeurs, vous pouvez utiliser les codes d'ID suivants :
 
