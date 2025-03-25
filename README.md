@@ -42,15 +42,22 @@ Pour cloner ce projet, ouvrez un terminal et exécutez la commande suivante :
 git clone https://github.com/ihssane2002/projet-learnscape.git
 ```
 1. Accédez au répertoire du projet cloné :
+```bash
 cd projet-learnscape
+```
 
 2. Installez les dépendances via npm  :
+```bash
 npm install
+```
 3. Démarrer l'application localement
 Une fois les dépendances installées, vous pouvez démarrer le serveur local en utilisant la commande suivante :
+```bash
 npm run start -- --port 3000
-
-4. Accéder à l'application localement : Après avoir lancé le serveur, ouvrez votre navigateur web et allez à l'adresse suivante pour voir votre application en local :
+```
+5. Accéder à l'application localement : Après avoir lancé le serveur, ouvrez votre navigateur web et allez à l'adresse suivante pour voir votre application en local :
+6. 
 http://localhost:3000
+
  ⚠️  Remarque
 L'accès aux données Firebase est sécurisé. Vous devrez avoir les bonnes clés d'API et l'accès approprié pour tester les fonctionnalités d'authentification et de base de données.
